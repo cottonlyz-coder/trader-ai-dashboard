@@ -1,4 +1,4 @@
-"""Download the market data used by Trader AI Dashboard v1.
+"""Download the market data used by Trader AI Dashboard v1.5.
 
 The functions in this file intentionally stay simple: yfinance is convenient
 for a personal research dashboard, but a symbol can occasionally disappear or
@@ -67,7 +67,7 @@ def _download_close(ticker: str, period: str) -> pd.Series:
 
 
 def load_market_data(
-    period: str = "6mo",
+    period: str = "2y",
 ) -> Tuple[pd.DataFrame, pd.DataFrame, List[str]]:
     """Download close prices, trying fallback tickers when necessary.
 
