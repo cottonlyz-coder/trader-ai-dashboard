@@ -33,6 +33,22 @@ v1.5 使用 `yfinance` 下载日线数据，并追踪：
 
 > 注：如果某个序列没有合适且方向一致的替代品，例如 VIX 或 US 10Y Yield，v1 会显示下载失败提示，而不是用可能造成误读的 proxy。
 
+## AI Trade Review v1
+
+项目现在新增一个独立的交易复盘入口：
+
+[在 Colab 中打开 AI Trade Review v1](https://colab.research.google.com/github/cottonlyz-coder/trader-ai-dashboard/blob/main/notebooks/ai_trade_review_v1_colab.ipynb)
+
+功能：
+
+- 读取 `data/trade_journal_sample.csv` 交易日志样例。
+- 结合当前市场仪表盘状态进行复盘。
+- 没有 OpenAI API Key 时，先输出离线规则复盘。
+- 输入 OpenAI API Key 后，使用 OpenAI Responses API 生成 AI 交易教练反馈。
+- API Key 通过 Colab 临时输入，不写入仓库。
+
+交易日志模板位于 `templates/trade_journal_template.csv`。
+
 ## 项目结构
 
 ```text
@@ -42,9 +58,15 @@ Trader AI Dashboard/
 ├── requirements.txt
 ├── notebooks/
 │   ├── trader_dashboard_v1_colab.ipynb
-│   └── trader_dashboard_v1_5_colab.ipynb
+│   ├── trader_dashboard_v1_5_colab.ipynb
+│   └── ai_trade_review_v1_colab.ipynb
+├── data/
+│   └── trade_journal_sample.csv
+├── templates/
+│   └── trade_journal_template.csv
 └── src/
     ├── __init__.py
+    ├── ai_review.py
     ├── dashboard.py
     ├── data_loader.py
     ├── indicators.py
@@ -82,6 +104,7 @@ jupyter notebook notebooks/trader_dashboard_v1_5_colab.ipynb
 - `src/regime.py` 用分层可读规则生成市场状态，不把判断藏在黑盒中。
 - `src/report.py` 根据结果生成中文盘前摘要和观察清单。
 - `src/dashboard.py` 负责适合 Colab 展示的综合概览图。
+- `src/ai_review.py` 负责交易日志校验、离线复盘和 OpenAI API 复盘。
 - Notebook 只负责串联流程和显示图表，便于未来迁移到 Streamlit。
 
 ## 后续路线图
