@@ -1,0 +1,6 @@
+date,symbol,direction,setup,entry_price,exit_price,position_size,risk_amount,pnl,market_regime_before_trade,plan,execution_notes,emotion_tag,lesson
+2026-05-01,QQQ,Long,Trend pullback,425.50,431.20,1.0,300,520,Risk-On,Buy pullback near 20D trend and trail stop,Followed plan and scaled out once momentum slowed,Calm,Good example of trading with market regime
+2026-05-06,GLD,Long,Breakout,218.30,216.10,0.7,250,-180,Neutral / Mixed,Buy breakout only if dollar weakens,Entered before confirmation and ignored dollar strength,Impatient,Wait for macro confirmation before breakout entries
+2026-05-09,USO,Short,Failed rebound,78.40,75.90,0.8,220,310,Risk-Off,Short failed rebound with defined invalidation,Exited at first target and avoided overholding,Focused,Plan worked because risk-off context matched the setup
+2026-05-15,QQQ,Long,Opening momentum,438.00,433.80,1.2,350,-500,Neutral / Mixed,Small size unless VIX confirms lower,Size was too large for mixed signals,Overconfident,Reduce size when dashboard shows mixed conditions
+
